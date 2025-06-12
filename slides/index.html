@@ -12,22 +12,21 @@
     <!-- Presentation container -->
     <div
       id="slidesContainer"
-      class="h-screen flex items-center justify-center relative"
+      class="h-screen w-full flex items-center justify-center relative overflow-hidden"
     ></div>
 
     <!-- Navigation (disabled buttons for now) -->
     <div class="fixed bottom-8 left-1/2 -translate-x-1/2 flex gap-5 z-50">
       <button
         id="prevBtn"
-        class="py-3 px-8 bg-indigo-500/80 rounded-full"
-        disabled
+        class="py-3 px-8 bg-indigo-500/80 rounded-full hover:bg-indigo-600/80 transition-colors"
+        hidden
       >
         Previous
       </button>
       <button
         id="nextBtn"
-        class="py-3 px-8 bg-indigo-500/80 rounded-full"
-        disabled
+        class="py-3 px-8 bg-indigo-500/80 rounded-full hover:bg-indigo-600/80 transition-colors"
       >
         Next
       </button>
@@ -45,64 +44,96 @@
       ];
 
       const container = document.getElementById("slidesContainer");
+      const prevBtn = document.getElementById("prevBtn");
+      const nextBtn = document.getElementById("nextBtn");
+      let currentSlide = 0;
 
-      Promise.all(slidePaths.map((p) => fetch(p).then((r) => r.text()))).then(
-        (htmlArr) => {
-          htmlArr.forEach((html, i) => {
-            const wrapper = document.createElement("div");
-            wrapper.innerHTML = html.trim();
-            // 查找包含 slide 类的元素
-            const slide = wrapper.querySelector(".slide");
-            if (slide) {
-              const numEl = slide.querySelector(".slide-number");
-              if (numEl) numEl.textContent = `${i + 1} / ${slidePaths.length}`;
-              container.appendChild(slide);
-            }
-          });
+      function updateNavButtons() {
+        const isFirstSlide = currentSlide === 0;
+        const isLastSlide = currentSlide === slidePaths.length - 1;
 
-          const slides = container.querySelectorAll(".slide");
-          let current = 0;
+        prevBtn.hidden = isFirstSlide;
+        nextBtn.hidden = isLastSlide;
+      }
 
-          function showSlide(n) {
-            slides.forEach((s) => s.classList.add("hidden"));
-            current = (n + slides.length) % slides.length;
-            slides[current].classList.remove("hidden");
-            document.getElementById("prevBtn").disabled = current === 0;
-            document.getElementById("nextBtn").disabled =
-              current === slides.length - 1;
+      function navigate(delta) {
+        const newIndex = currentSlide + delta;
 
-            // Initialize animations for specific slides
-            const currentSlide = slides[current];
-            if (
-              currentSlide &&
-              currentSlide.dataset.slide === "battery-animation"
-            ) {
-              console.log("Battery animation slide detected, initializing...");
-              setTimeout(() => {
-                if (window.initializeBatteryAnimation) {
-                  window.initializeBatteryAnimation();
-                } else {
-                  console.error("Battery animation function not available");
-                }
-              }, 100);
-            }
-          }
+        if (newIndex >= 0 && newIndex < slidePaths.length) {
+          const slideWidth = 100 / slidePaths.length;
+          const translateX = -(newIndex * slideWidth);
 
-          window.nextSlide = () =>
-            current < slides.length - 1 && showSlide(current + 1);
-          window.previousSlide = () => current > 0 && showSlide(current - 1);
-
-          document.getElementById("nextBtn").onclick = () => nextSlide();
-          document.getElementById("prevBtn").onclick = () => previousSlide();
-
-          document.addEventListener("keydown", (e) => {
-            if (e.key === "ArrowRight") nextSlide();
-            if (e.key === "ArrowLeft") previousSlide();
-          });
-
-          showSlide(0);
+          currentSlide = newIndex;
+          container.style.transform = `translateX(${translateX}%)`;
+          updateNavButtons();
         }
-      );
+      }
+
+      // 加载所有幻灯片
+      Promise.all(slidePaths.map((p) => fetch(p).then((r) => r.text())))
+        .then((htmlArr) => {
+          // 设置容器样式
+          container.style.cssText = `
+            display: flex;
+            transition: transform 0.3s ease-in-out;
+            width: ${htmlArr.length * 100}%;
+            height: 100%;
+            position: relative;
+          `;
+
+          htmlArr.forEach((html, i) => {
+            const slideWrapper = document.createElement("div");
+            const slideWidth = 100 / htmlArr.length;
+
+            slideWrapper.style.cssText = `
+              width: ${slideWidth}%;
+              height: 100%;
+              flex-shrink: 0;
+              display: flex;
+              align-items: center;
+              justify-content: center;
+              position: relative;
+              overflow: hidden;
+            `;
+
+            slideWrapper.innerHTML = html.replace("hidden", "");
+            container.appendChild(slideWrapper);
+          });
+
+          // 初始化transform位置
+          container.style.transform = "translateX(0%)";
+          updateNavButtons();
+        })
+        .catch((error) => {
+          console.error("加载幻灯片时出错:", error);
+        });
+
+      // 添加按钮点击事件
+      prevBtn.addEventListener("click", (e) => {
+        e.preventDefault();
+        if (!prevBtn.hidden) {
+          navigate(-1);
+        }
+      });
+
+      nextBtn.addEventListener("click", (e) => {
+        e.preventDefault();
+        if (!nextBtn.hidden) {
+          navigate(1);
+        }
+      });
+
+      // 键盘事件监听
+      document.addEventListener("keydown", (e) => {
+        if (e.key === "ArrowLeft" && !prevBtn.hidden) {
+          e.preventDefault();
+          navigate(-1);
+        }
+        if (e.key === "ArrowRight" && !nextBtn.hidden) {
+          e.preventDefault();
+          navigate(1);
+        }
+      });
     </script>
   </body>
 </html>
