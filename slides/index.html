@@ -70,6 +70,19 @@
             document.getElementById("prevBtn").disabled = current === 0;
             document.getElementById("nextBtn").disabled =
               current === slides.length - 1;
+            
+            // Initialize animations for specific slides
+            const currentSlide = slides[current];
+            if (currentSlide && currentSlide.dataset.slide === 'battery-animation') {
+              console.log('Battery animation slide detected, initializing...');
+              setTimeout(() => {
+                if (window.initializeBatteryAnimation) {
+                  window.initializeBatteryAnimation();
+                } else {
+                  console.error('Battery animation function not available');
+                }
+              }, 100);
+            }
           }
 
           window.nextSlide = () =>
@@ -88,5 +101,8 @@
         }
       );
     </script>
+    
+    <!-- Battery Animation Script -->
+    <script type="module" src="/js/battery-animation.js"></script>
   </body>
 </html>
