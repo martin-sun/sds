@@ -1,181 +1,417 @@
 <!-- Slide 3: How Redox Flow Batteries Work -->
-<div class="slide w-[95%] max-w-[1400px] min-h-[85vh] bg-white/5 backdrop-blur-lg rounded-2xl p-12 shadow-[0_20px_60px_rgba(0,0,0,0.3)] border border-white/10 animate-slide-in relative hidden" data-slide="battery-animation">
-  <div class="absolute top-8 right-8 text-lg tracking-wider opacity-60 slide-number"></div>
-  <h2 class="text-4xl mb-8 text-indigo-400 text-center font-bold">How Redox Flow Batteries Work</h2>
+<div
+  class="slide w-[95%] max-w-[1400px] min-h-[85vh] bg-white/5 backdrop-blur-lg rounded-2xl p-12 shadow-[0_20px_60px_rgba(0,0,0,0.3)] border border-white/10 animate-slide-in relative hidden"
+  data-slide="battery-animation"
+>
+  <div
+    class="absolute top-8 right-8 text-lg tracking-wider opacity-60 slide-number"
+  ></div>
+  <h2 class="text-4xl mb-8 text-indigo-400 text-center font-bold">
+    How Redox Flow Batteries Work
+  </h2>
 
   <!-- Main Battery Diagram -->
   <div class="relative flex justify-center mb-8">
-    <svg id="batteryDiagram" class="w-full max-w-[1000px] h-[400px]" viewBox="0 0 1000 400" fill="none" xmlns="http://www.w3.org/2000/svg">
-      
+    <svg
+      id="batteryDiagram"
+      class="w-full max-w-[1000px] h-[400px]"
+      viewBox="0 0 1000 400"
+      fill="none"
+      xmlns="http://www.w3.org/2000/svg"
+    >
       <!-- Background Grid -->
       <defs>
         <pattern id="grid" width="20" height="20" patternUnits="userSpaceOnUse">
-          <path d="M 20 0 L 0 0 0 20" fill="none" stroke="rgba(255,255,255,0.05)" stroke-width="1"/>
+          <path
+            d="M 20 0 L 0 0 0 20"
+            fill="none"
+            stroke="rgba(255,255,255,0.05)"
+            stroke-width="1"
+          />
         </pattern>
-        
+
         <!-- Gradients -->
-        <linearGradient id="negativeGradient" x1="0%" y1="0%" x2="100%" y2="100%">
-          <stop offset="0%" style="stop-color:#3b82f6;stop-opacity:0.3" />
-          <stop offset="100%" style="stop-color:#1e40af;stop-opacity:0.1" />
+        <linearGradient
+          id="negativeGradient"
+          x1="0%"
+          y1="0%"
+          x2="100%"
+          y2="100%"
+        >
+          <stop offset="0%" style="stop-color: #3b82f6; stop-opacity: 0.3" />
+          <stop offset="100%" style="stop-color: #1e40af; stop-opacity: 0.1" />
         </linearGradient>
-        
-        <linearGradient id="positiveGradient" x1="0%" y1="0%" x2="100%" y2="100%">
-          <stop offset="0%" style="stop-color:#ef4444;stop-opacity:0.3" />
-          <stop offset="100%" style="stop-color:#dc2626;stop-opacity:0.1" />
+
+        <linearGradient
+          id="positiveGradient"
+          x1="0%"
+          y1="0%"
+          x2="100%"
+          y2="100%"
+        >
+          <stop offset="0%" style="stop-color: #ef4444; stop-opacity: 0.3" />
+          <stop offset="100%" style="stop-color: #dc2626; stop-opacity: 0.1" />
         </linearGradient>
-        
+
         <!-- Arrow markers -->
-        <marker id="electronArrow" markerWidth="12" markerHeight="12" refX="10" refY="3" orient="auto" markerUnits="strokeWidth">
+        <marker
+          id="electronArrow"
+          markerWidth="12"
+          markerHeight="12"
+          refX="10"
+          refY="3"
+          orient="auto"
+          markerUnits="strokeWidth"
+        >
           <path d="M0,0 L0,6 L9,3 z" fill="#fbbf24" />
         </marker>
-        
-        <marker id="ionArrow" markerWidth="10" markerHeight="10" refX="8" refY="3" orient="auto" markerUnits="strokeWidth">
+
+        <marker
+          id="ionArrow"
+          markerWidth="10"
+          markerHeight="10"
+          refX="8"
+          refY="3"
+          orient="auto"
+          markerUnits="strokeWidth"
+        >
           <path d="M0,0 L0,6 L6,3 z" fill="#a855f7" />
         </marker>
       </defs>
-      
-      <rect width="1000" height="400" fill="url(#grid)" opacity="0.3"/>
-      
+
+      <rect width="1000" height="400" fill="url(#grid)" opacity="0.3" />
+
       <!-- Negative Tank (Anolyte) -->
       <g id="negativeTank">
-        <rect x="50" y="100" width="150" height="200" rx="15" fill="url(#negativeGradient)" stroke="#3b82f6" stroke-width="3"/>
-        <text x="125" y="85" text-anchor="middle" fill="#3b82f6" font-size="16" font-weight="bold">Anolyte Tank</text>
-        <text x="125" y="320" text-anchor="middle" fill="#60a5fa" font-size="12">V²⁺/V³⁺</text>
-        
+        <rect
+          x="50"
+          y="100"
+          width="150"
+          height="200"
+          rx="15"
+          fill="url(#negativeGradient)"
+          stroke="#3b82f6"
+          stroke-width="3"
+        />
+        <text
+          x="125"
+          y="85"
+          text-anchor="middle"
+          fill="#3b82f6"
+          font-size="16"
+          font-weight="bold"
+        >
+          Anolyte Tank
+        </text>
+
         <!-- Liquid level indicator -->
-        <rect id="negativeLevel" x="60" y="280" width="130" height="10" rx="5" fill="#3b82f6" opacity="0.6"/>
-        
+        <rect
+          id="negativeLevel"
+          x="60"
+          y="280"
+          width="130"
+          height="10"
+          rx="5"
+          fill="#3b82f6"
+          opacity="0.6"
+        />
+
         <!-- Molecules in negative tank -->
         <g id="negativeMolecules">
-          <circle cx="80" cy="130" r="3" fill="#60a5fa" opacity="0.8"/>
-          <circle cx="120" cy="150" r="3" fill="#60a5fa" opacity="0.8"/>
-          <circle cx="160" cy="170" r="3" fill="#60a5fa" opacity="0.8"/>
-          <circle cx="100" cy="190" r="3" fill="#60a5fa" opacity="0.8"/>
-          <circle cx="140" cy="210" r="3" fill="#60a5fa" opacity="0.8"/>
-          <circle cx="90" cy="250" r="3" fill="#60a5fa" opacity="0.8"/>
+          <circle cx="80" cy="130" r="3" fill="#60a5fa" opacity="0.8" />
+          <circle cx="120" cy="150" r="3" fill="#60a5fa" opacity="0.8" />
+          <circle cx="160" cy="170" r="3" fill="#60a5fa" opacity="0.8" />
+          <circle cx="100" cy="190" r="3" fill="#60a5fa" opacity="0.8" />
+          <circle cx="140" cy="210" r="3" fill="#60a5fa" opacity="0.8" />
+          <circle cx="90" cy="250" r="3" fill="#60a5fa" opacity="0.8" />
         </g>
       </g>
-      
+
       <!-- Positive Tank (Catholyte) -->
       <g id="positiveTank">
-        <rect x="800" y="100" width="150" height="200" rx="15" fill="url(#positiveGradient)" stroke="#ef4444" stroke-width="3"/>
-        <text x="875" y="85" text-anchor="middle" fill="#ef4444" font-size="16" font-weight="bold">Catholyte Tank</text>
-        <text x="875" y="320" text-anchor="middle" fill="#f87171" font-size="12">VO₂⁺/VO²⁺</text>
-        
+        <rect
+          x="800"
+          y="100"
+          width="150"
+          height="200"
+          rx="15"
+          fill="url(#positiveGradient)"
+          stroke="#ef4444"
+          stroke-width="3"
+        />
+        <text
+          x="875"
+          y="85"
+          text-anchor="middle"
+          fill="#ef4444"
+          font-size="16"
+          font-weight="bold"
+        >
+          Catholyte Tank
+        </text>
+
         <!-- Liquid level indicator -->
-        <rect id="positiveLevel" x="810" y="280" width="130" height="10" rx="5" fill="#ef4444" opacity="0.6"/>
-        
+        <rect
+          id="positiveLevel"
+          x="810"
+          y="280"
+          width="130"
+          height="10"
+          rx="5"
+          fill="#ef4444"
+          opacity="0.6"
+        />
+
         <!-- Molecules in positive tank -->
         <g id="positiveMolecules">
-          <circle cx="830" cy="130" r="3" fill="#f87171" opacity="0.8"/>
-          <circle cx="870" cy="150" r="3" fill="#f87171" opacity="0.8"/>
-          <circle cx="910" cy="170" r="3" fill="#f87171" opacity="0.8"/>
-          <circle cx="850" cy="190" r="3" fill="#f87171" opacity="0.8"/>
-          <circle cx="890" cy="210" r="3" fill="#f87171" opacity="0.8"/>
-          <circle cx="840" cy="250" r="3" fill="#f87171" opacity="0.8"/>
+          <circle cx="830" cy="130" r="3" fill="#f87171" opacity="0.8" />
+          <circle cx="870" cy="150" r="3" fill="#f87171" opacity="0.8" />
+          <circle cx="910" cy="170" r="3" fill="#f87171" opacity="0.8" />
+          <circle cx="850" cy="190" r="3" fill="#f87171" opacity="0.8" />
+          <circle cx="890" cy="210" r="3" fill="#f87171" opacity="0.8" />
+          <circle cx="840" cy="250" r="3" fill="#f87171" opacity="0.8" />
         </g>
       </g>
-      
+
       <!-- Cell Stack -->
       <g id="cellStack">
-        <rect x="350" y="120" width="300" height="160" rx="10" fill="rgba(255,255,255,0.05)" stroke="#a855f7" stroke-width="2"/>
-        <text x="500" y="140" text-anchor="middle" fill="#a855f7" font-size="14" font-weight="bold">Electrochemical Cell</text>
-        
+        <rect
+          x="350"
+          y="120"
+          width="300"
+          height="160"
+          rx="10"
+          fill="rgba(255,255,255,0.05)"
+          stroke="#a855f7"
+          stroke-width="2"
+        />
+        <text
+          x="500"
+          y="140"
+          text-anchor="middle"
+          fill="#a855f7"
+          font-size="14"
+          font-weight="bold"
+        >
+          Electrochemical Cell
+        </text>
+
         <!-- Negative Electrode -->
-        <rect x="370" y="140" width="20" height="120" fill="#3b82f6" opacity="0.7"/>
-        <text x="380" y="275" text-anchor="middle" fill="#3b82f6" font-size="10">Anode (-)</text>
-        
+        <rect
+          x="370"
+          y="140"
+          width="20"
+          height="120"
+          fill="#3b82f6"
+          opacity="0.7"
+        />
+        <text
+          x="380"
+          y="275"
+          text-anchor="middle"
+          fill="#3b82f6"
+          font-size="10"
+        >
+          Anode (-)
+        </text>
+
         <!-- Positive Electrode -->
-        <rect x="610" y="140" width="20" height="120" fill="#ef4444" opacity="0.7"/>
-        <text x="620" y="275" text-anchor="middle" fill="#ef4444" font-size="10">Cathode (+)</text>
-        
+        <rect
+          x="610"
+          y="140"
+          width="20"
+          height="120"
+          fill="#ef4444"
+          opacity="0.7"
+        />
+        <text
+          x="620"
+          y="275"
+          text-anchor="middle"
+          fill="#ef4444"
+          font-size="10"
+        >
+          Cathode (+)
+        </text>
+
         <!-- Membrane -->
-        <line x1="500" y1="140" x2="500" y2="260" stroke="#fbbf24" stroke-width="4" stroke-dasharray="8 4"/>
-        <text x="500" y="290" text-anchor="middle" fill="#fbbf24" font-size="12">Ion Exchange Membrane</text>
-        
+        <line
+          x1="500"
+          y1="140"
+          x2="500"
+          y2="260"
+          stroke="#fbbf24"
+          stroke-width="4"
+          stroke-dasharray="8 4"
+        />
+        <text
+          x="500"
+          y="290"
+          text-anchor="middle"
+          fill="#fbbf24"
+          font-size="12"
+        >
+          Ion Exchange Membrane
+        </text>
+
         <!-- Flow channels -->
-        <path d="M390 160 Q450 160 490 160" stroke="#3b82f6" stroke-width="6" opacity="0.3" fill="none"/>
-        <path d="M510 220 Q550 220 590 220" stroke="#ef4444" stroke-width="6" opacity="0.3" fill="none"/>
+        <path
+          d="M390 160 Q450 160 490 160"
+          stroke="#3b82f6"
+          stroke-width="6"
+          opacity="0.3"
+          fill="none"
+        />
+        <path
+          d="M510 220 Q550 220 590 220"
+          stroke="#ef4444"
+          stroke-width="6"
+          opacity="0.3"
+          fill="none"
+        />
       </g>
-      
+
       <!-- Pumps -->
       <g id="pumps">
         <!-- Negative pump -->
-        <circle cx="250" cy="200" r="25" fill="rgba(59,130,246,0.2)" stroke="#3b82f6" stroke-width="2"/>
-        <text x="250" y="205" text-anchor="middle" fill="#3b82f6" font-size="12">P</text>
-        
+        <circle
+          cx="250"
+          cy="200"
+          r="25"
+          fill="rgba(59,130,246,0.2)"
+          stroke="#3b82f6"
+          stroke-width="2"
+        />
+        <text
+          x="250"
+          y="205"
+          text-anchor="middle"
+          fill="#3b82f6"
+          font-size="12"
+        >
+          P
+        </text>
+
         <!-- Positive pump -->
-        <circle cx="750" cy="200" r="25" fill="rgba(239,68,68,0.2)" stroke="#ef4444" stroke-width="2"/>
-        <text x="750" y="205" text-anchor="middle" fill="#ef4444" font-size="12">P</text>
+        <circle
+          cx="750"
+          cy="200"
+          r="25"
+          fill="rgba(239,68,68,0.2)"
+          stroke="#ef4444"
+          stroke-width="2"
+        />
+        <text
+          x="750"
+          y="205"
+          text-anchor="middle"
+          fill="#ef4444"
+          font-size="12"
+        >
+          P
+        </text>
       </g>
-      
+
       <!-- Flow Pipes -->
       <g id="flowPipes">
         <!-- Negative flow -->
-        <path d="M200 180 Q275 160 350 160" stroke="#3b82f6" stroke-width="4" fill="none" opacity="0.7"/>
-        <path d="M350 220 Q275 240 200 220" stroke="#3b82f6" stroke-width="4" fill="none" opacity="0.7"/>
-        
+        <path
+          d="M200 180 Q275 160 350 160"
+          stroke="#3b82f6"
+          stroke-width="4"
+          fill="none"
+          opacity="0.7"
+        />
+        <path
+          d="M350 220 Q275 240 200 220"
+          stroke="#3b82f6"
+          stroke-width="4"
+          fill="none"
+          opacity="0.7"
+        />
+
         <!-- Positive flow -->
-        <path d="M650 220 Q725 240 800 220" stroke="#ef4444" stroke-width="4" fill="none" opacity="0.7"/>
-        <path d="M800 180 Q725 160 650 180" stroke="#ef4444" stroke-width="4" fill="none" opacity="0.7"/>
+        <path
+          d="M650 220 Q725 240 800 220"
+          stroke="#ef4444"
+          stroke-width="4"
+          fill="none"
+          opacity="0.7"
+        />
+        <path
+          d="M800 180 Q725 160 650 180"
+          stroke="#ef4444"
+          stroke-width="4"
+          fill="none"
+          opacity="0.7"
+        />
       </g>
-      
+
       <!-- External Circuit -->
       <g id="externalCircuit">
-        <path d="M380 120 Q500 80 620 120" stroke="#fbbf24" stroke-width="6" fill="none"/>
-        <text x="500" y="70" text-anchor="middle" fill="#fbbf24" font-size="14" font-weight="bold">External Circuit</text>
-        
+        <path
+          d="M380 120 Q500 80 620 120"
+          stroke="#fbbf24"
+          stroke-width="6"
+          fill="none"
+        />
+        <text
+          x="500"
+          y="70"
+          text-anchor="middle"
+          fill="#fbbf24"
+          font-size="14"
+          font-weight="bold"
+        >
+          External Circuit
+        </text>
+
         <!-- Load/Resistor -->
-        <rect x="485" y="85" width="30" height="15" fill="none" stroke="#fbbf24" stroke-width="2"/>
-        <text x="500" y="95" text-anchor="middle" fill="#fbbf24" font-size="8">LOAD</text>
+        <rect
+          x="485"
+          y="85"
+          width="30"
+          height="15"
+          fill="none"
+          stroke="#fbbf24"
+          stroke-width="2"
+        />
+        <text x="500" y="95" text-anchor="middle" fill="#fbbf24" font-size="8">
+          LOAD
+        </text>
       </g>
-      
+
       <!-- Animated Elements -->
       <!-- Electrons in external circuit -->
       <g id="electrons">
-        <circle class="electron" cx="400" cy="120" r="2" fill="#fbbf24"/>
-        <circle class="electron" cx="450" cy="110" r="2" fill="#fbbf24"/>
-        <circle class="electron" cx="500" cy="105" r="2" fill="#fbbf24"/>
-        <circle class="electron" cx="550" cy="110" r="2" fill="#fbbf24"/>
-        <circle class="electron" cx="600" cy="120" r="2" fill="#fbbf24"/>
+        <circle class="electron" cx="400" cy="120" r="2" fill="#fbbf24" />
+        <circle class="electron" cx="450" cy="110" r="2" fill="#fbbf24" />
+        <circle class="electron" cx="500" cy="105" r="2" fill="#fbbf24" />
+        <circle class="electron" cx="550" cy="110" r="2" fill="#fbbf24" />
+        <circle class="electron" cx="600" cy="120" r="2" fill="#fbbf24" />
       </g>
-      
+
       <!-- Ions crossing membrane -->
       <g id="ions">
-        <circle class="ion" cx="480" cy="160" r="2" fill="#a855f7"/>
-        <circle class="ion" cx="490" cy="180" r="2" fill="#a855f7"/>
-        <circle class="ion" cx="510" cy="200" r="2" fill="#a855f7"/>
-        <circle class="ion" cx="520" cy="220" r="2" fill="#a855f7"/>
+        <circle class="ion" cx="480" cy="160" r="2" fill="#a855f7" />
+        <circle class="ion" cx="490" cy="180" r="2" fill="#a855f7" />
+        <circle class="ion" cx="510" cy="200" r="2" fill="#a855f7" />
+        <circle class="ion" cx="520" cy="220" r="2" fill="#a855f7" />
       </g>
-      
+
       <!-- Flow particles -->
       <g id="flowParticles">
         <!-- Negative flow particles -->
-        <circle class="negFlow" cx="220" cy="180" r="1.5" fill="#60a5fa"/>
-        <circle class="negFlow" cx="280" cy="170" r="1.5" fill="#60a5fa"/>
-        <circle class="negFlow" cx="320" cy="165" r="1.5" fill="#60a5fa"/>
-        
+        <circle class="negFlow" cx="220" cy="180" r="1.5" fill="#60a5fa" />
+        <circle class="negFlow" cx="280" cy="170" r="1.5" fill="#60a5fa" />
+        <circle class="negFlow" cx="320" cy="165" r="1.5" fill="#60a5fa" />
+
         <!-- Positive flow particles -->
-        <circle class="posFlow" cx="680" cy="220" r="1.5" fill="#f87171"/>
-        <circle class="posFlow" cx="740" cy="230" r="1.5" fill="#f87171"/>
-        <circle class="posFlow" cx="780" cy="225" r="1.5" fill="#f87171"/>
+        <circle class="posFlow" cx="680" cy="220" r="1.5" fill="#f87171" />
+        <circle class="posFlow" cx="740" cy="230" r="1.5" fill="#f87171" />
+        <circle class="posFlow" cx="780" cy="225" r="1.5" fill="#f87171" />
       </g>
     </svg>
-  </div>
-
-  <!-- Control Panel -->
-  <div class="flex justify-center mb-6">
-    <div class="flex gap-4">
-      <button id="startAnimation" class="px-6 py-2 bg-green-500 hover:bg-green-600 rounded-lg font-semibold transition-colors">
-        Start Animation
-      </button>
-      <button id="pauseAnimation" class="px-6 py-2 bg-yellow-500 hover:bg-yellow-600 rounded-lg font-semibold transition-colors">
-        Pause
-      </button>
-      <button id="resetAnimation" class="px-6 py-2 bg-red-500 hover:bg-red-600 rounded-lg font-semibold transition-colors">
-        Reset
-      </button>
-    </div>
   </div>
 
   <!-- Scientific Explanation -->
@@ -189,7 +425,9 @@
         </div>
         <div class="flex items-center gap-2">
           <div class="w-3 h-3 bg-red-400 rounded-full"></div>
-          <span><strong>Cathode (+):</strong> VO₂⁺ + 2H⁺ + e⁻ → VO²⁺ + H₂O</span>
+          <span
+            ><strong>Cathode (+):</strong> VO₂⁺ + 2H⁺ + e⁻ → VO²⁺ + H₂O</span
+          >
         </div>
         <div class="flex items-center gap-2">
           <div class="w-3 h-3 bg-yellow-400 rounded-full"></div>
@@ -197,11 +435,13 @@
         </div>
         <div class="flex items-center gap-2">
           <div class="w-3 h-3 bg-purple-400 rounded-full"></div>
-          <span><strong>H⁺ ions</strong> cross membrane for charge balance</span>
+          <span
+            ><strong>H⁺ ions</strong> cross membrane for charge balance</span
+          >
         </div>
       </div>
     </div>
-    
+
     <div class="space-y-3">
       <h3 class="text-xl font-bold text-green-400 mb-3">Key Advantages</h3>
       <ul class="space-y-2 list-disc list-inside">
