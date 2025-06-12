@@ -1,8 +1,17 @@
 /** @type {import('tailwindcss').Config} */
 export default {
-  content: ["./index.html", "./main.js"],
+  content: [
+    "./index.html",
+    "./src/**/*.{js,ts,jsx,tsx}",
+    "./main.js",
+    "./slides/**/*.{html,js}",
+  ],
   theme: {
-    extend: {},
+    extend: {
+      animation: {
+        "bounce-slow": "bounce 3s infinite",
+      },
+    },
   },
   plugins: [],
 };
