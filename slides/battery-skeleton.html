@@ -1,0 +1,69 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>Battery Slides Skeleton</title>
+    <!-- 生产环境请改为 dist/output.css -->
+    <link rel="stylesheet" href="../dist/output.css" />
+  </head>
+  <body class="font-sans bg-gradient-to-br from-[#0f0c29] via-[#302b63] to-[#24243e] text-white h-screen overflow-hidden">
+    <!-- Presentation container -->
+    <div id="slidesContainer" class="h-screen flex items-center justify-center relative"></div>
+
+    <!-- Navigation (disabled buttons for now) -->
+    <div class="fixed bottom-8 left-1/2 -translate-x-1/2 flex gap-5 z-50">
+      <button id="prevBtn" class="py-3 px-8 bg-indigo-500/80 rounded-full" disabled>Previous</button>
+      <button id="nextBtn" class="py-3 px-8 bg-indigo-500/80 rounded-full" disabled>Next</button>
+    </div>
+
+    <script>
+      const slidePaths = [
+        '01-title.html',
+        '02-what-is-redox.html',
+        '03-how-it-works.html',
+        '04-discharge.html',
+        '05-recharge.html',
+        '06-factors.html',
+        '07-conclusion.html'
+      ];
+
+      const container = document.getElementById('slidesContainer');
+
+      Promise.all(slidePaths.map(p => fetch(p).then(r => r.text()))).then(htmlArr => {
+        htmlArr.forEach((html, i) => {
+          const wrapper = document.createElement('div');
+          wrapper.innerHTML = html.trim();
+          const slide = wrapper.firstElementChild;
+          const numEl = slide.querySelector('.slide-number');
+          if (numEl) numEl.textContent = `${i + 1} / ${slidePaths.length}`;
+          container.appendChild(slide);
+        });
+
+        const slides = container.querySelectorAll('.slide');
+        let current = 0;
+
+        function showSlide(n) {
+          slides.forEach(s => s.classList.add('hidden'));
+          current = (n + slides.length) % slides.length;
+          slides[current].classList.remove('hidden');
+          document.getElementById('prevBtn').disabled = current === 0;
+          document.getElementById('nextBtn').disabled = current === slides.length - 1;
+        }
+
+        window.nextSlide = () => current < slides.length - 1 && showSlide(current + 1);
+        window.previousSlide = () => current > 0 && showSlide(current - 1);
+
+        document.getElementById('nextBtn').onclick = () => nextSlide();
+        document.getElementById('prevBtn').onclick = () => previousSlide();
+
+        document.addEventListener('keydown', e => {
+          if (e.key === 'ArrowRight') nextSlide();
+          if (e.key === 'ArrowLeft') previousSlide();
+        });
+
+        showSlide(0);
+      });
+    </script>
+  </body>
+</html>

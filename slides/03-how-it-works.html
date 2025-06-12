@@ -1,0 +1,40 @@
+<!-- Slide 3: How Redox Flow Batteries Work -->
+<div class="slide w-[90%] max-w-[1200px] min-h-[80vh] bg-white/5 backdrop-blur-lg rounded-2xl p-16 shadow-[0_20px_60px_rgba(0,0,0,0.3)] border border-white/10 animate-slide-in relative hidden">
+  <div class="absolute top-8 right-8 text-lg tracking-wider opacity-60 slide-number"></div>
+  <h2 class="text-4xl mb-6 text-indigo-400 text-center">How Redox Flow Batteries Work</h2>
+
+  <!-- Simplified diagram placeholder -->
+  <div class="my-8 flex justify-center">
+    <svg class="w-full max-w-[700px]" viewBox="0 0 700 320" fill="none" xmlns="http://www.w3.org/2000/svg">
+      <rect x="50" y="80" width="120" height="160" rx="10" class="stroke-blue-400/70 fill-blue-400/10" stroke-width="3" />
+      <text x="110" y="70" text-anchor="middle" class="fill-blue-400 text-[14px]">Negative Tank</text>
+
+      <rect x="530" y="80" width="120" height="160" rx="10" class="stroke-red-400/70 fill-red-400/10" stroke-width="3" />
+      <text x="590" y="70" text-anchor="middle" class="fill-red-400 text-[14px]">Positive Tank</text>
+
+      <!-- Membrane -->
+      <line x1="350" y1="80" x2="350" y2="240" class="stroke-yellow-400" stroke-width="4" stroke-dasharray="6 6" />
+      <text x="350" y="260" text-anchor="middle" class="fill-yellow-400 text-[12px]">Membrane</text>
+
+      <!-- Arrows -->
+      <path d="M170 140 Q260 140 340 140" class="stroke-blue-400" stroke-width="3" marker-end="url(#arrowBlue)" />
+      <path d="M530 180 Q440 180 360 180" class="stroke-red-400" stroke-width="3" marker-end="url(#arrowRed)" />
+
+      <defs>
+        <marker id="arrowBlue" markerWidth="10" markerHeight="10" refX="9" refY="3" orient="auto" markerUnits="strokeWidth">
+          <path d="M0,0 L0,6 L9,3 z" class="fill-blue-400" />
+        </marker>
+        <marker id="arrowRed" markerWidth="10" markerHeight="10" refX="9" refY="3" orient="auto" markerUnits="strokeWidth">
+          <path d="M0,0 L0,6 L9,3 z" class="fill-red-400" />
+        </marker>
+      </defs>
+    </svg>
+  </div>
+
+  <ul class="space-y-3 list-disc list-inside text-lg">
+    <li><span class="font-semibold text-red-400">Negative electrode oxidizes</span> — loses electrons</li>
+    <li>Electrons travel through external circuit producing <span class="font-semibold text-purple-400">current</span></li>
+    <li><span class="font-semibold text-blue-400">Positive electrode reduces</span> — gains electrons</li>
+    <li>Ions cross membrane to maintain charge balance</li>
+  </ul>
+</div>
