@@ -98,7 +98,7 @@
           font-size="16"
           font-weight="bold"
         >
-          Anolyte Tank
+          Electrolyte Tank
         </text>
 
         <!-- Liquid level indicator -->
@@ -144,7 +144,7 @@
           font-size="16"
           font-weight="bold"
         >
-          Catholyte Tank
+          Electrolyte Tank
         </text>
 
         <!-- Liquid level indicator -->
@@ -190,7 +190,7 @@
           font-size="14"
           font-weight="bold"
         >
-          Electrochemical Cell
+          Cell Stack
         </text>
 
         <!-- Negative Electrode -->
@@ -209,7 +209,7 @@
           fill="#3b82f6"
           font-size="10"
         >
-          Anode (-)
+          Anode
         </text>
 
         <!-- Positive Electrode -->
@@ -228,7 +228,7 @@
           fill="#ef4444"
           font-size="10"
         >
-          Cathode (+)
+          Cathode
         </text>
 
         <!-- Membrane -->
@@ -411,27 +411,57 @@
     </svg>
   </div>
 
-  <p class="text-center mb-8 text-lg">
-    External electricity
-    <span class="font-semibold text-yellow-400"
-      >reverses the entire process</span
+  <div class="flex justify-center mb-8">
+    <svg
+      class="w-full max-w-[1000px]"
+      viewBox="0 0 600 120"
+      fill="none"
+      xmlns="http://www.w3.org/2000/svg"
     >
-  </p>
+      <path
+        d="M 400 60 L 200 60"
+        class="stroke-yellow-300"
+        stroke-width="3"
+        marker-end="url(#eArrow)"
+      />
+      <text
+        x="300"
+        y="50"
+        text-anchor="middle"
+        class="fill-yellow-300 text-[14px]"
+      >
+        e⁻ flow (recharge)
+      </text>
+      <defs>
+        <marker
+          id="eArrow"
+          markerWidth="10"
+          markerHeight="10"
+          refX="1"
+          refY="3"
+          orient="auto"
+          markerUnits="strokeWidth"
+        >
+          <path d="M9,0 L9,6 L0,3 z" class="fill-yellow-300" />
+        </marker>
+      </defs>
+    </svg>
+  </div>
 
   <ul class="space-y-3 list-disc list-inside text-lg">
     <li>Electrons pushed back opposite direction</li>
     <li>
-      <span class="font-semibold text-red-400">Positive electrode oxidizes</span
-      >,
-      <span class="font-semibold text-blue-400"
-        >negative electrode reduces</span
-      >
+      <span class="font-semibold text-red-400">Anode oxidizes</span>,
+      <span class="font-semibold text-blue-400">Cathode reduces</span>
     </li>
     <li>Chemical energy stored for future use</li>
     <li>
       Makes flow batteries
       <span class="font-semibold text-purple-400">rechargeable</span> and
       sustainable
+    </li>
+    <li class="text-sm opacity-80 mt-4">
+      <span class="font-semibold">Note:</span> During charging: Anode = positive post, Cathode = negative post
     </li>
   </ul>
 </div>

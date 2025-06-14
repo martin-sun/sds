@@ -98,7 +98,7 @@
           font-size="16"
           font-weight="bold"
         >
-          Anolyte Tank
+          Electrolyte Tank
         </text>
 
         <!-- Liquid level indicator -->
@@ -144,7 +144,7 @@
           font-size="16"
           font-weight="bold"
         >
-          Catholyte Tank
+          Electrolyte Tank
         </text>
 
         <!-- Liquid level indicator -->
@@ -190,7 +190,7 @@
           font-size="14"
           font-weight="bold"
         >
-          Electrochemical Cell
+          Cell Stack
         </text>
 
         <!-- Negative Electrode -->
@@ -209,7 +209,7 @@
           fill="#3b82f6"
           font-size="10"
         >
-          Anode (-)
+          Anode
         </text>
 
         <!-- Positive Electrode -->
@@ -228,7 +228,7 @@
           fill="#ef4444"
           font-size="10"
         >
-          Cathode (+)
+          Cathode
         </text>
 
         <!-- Membrane -->
@@ -450,7 +450,7 @@
 
   <ul class="space-y-3 list-disc list-inside text-lg max-w-[1000px] mx-auto mt-4">
     <li>
-      <span class="font-semibold text-red-400">Oxidation</span> at negative side
+      <span class="font-semibold text-red-400">Oxidation</span> at <span class="font-semibold text-blue-400">Anode</span>
       releases electrons
     </li>
     <li>
@@ -458,9 +458,12 @@
       <span class="font-semibold text-green-400">load</span>
     </li>
     <li>
-      <span class="font-semibold text-blue-400">Reduction</span> at positive
-      side consumes electrons
+      <span class="font-semibold text-blue-400">Reduction</span> at <span class="font-semibold text-red-400">Cathode</span>
+      consumes electrons
     </li>
     <li>Ions migrate through membrane to keep charge neutrality</li>
+    <li class="text-sm opacity-80 mt-4">
+      <span class="font-semibold">Note:</span> Anode = negative post, Cathode = positive post
+    </li>
   </ul>
 </div>

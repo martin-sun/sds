@@ -101,7 +101,7 @@
           font-size="16"
           font-weight="bold"
         >
-          Anolyte Tank
+          Electrolyte Tank
         </text>
 
         <!-- Liquid level indicator -->
@@ -147,7 +147,7 @@
           font-size="16"
           font-weight="bold"
         >
-          Catholyte Tank
+          Electrolyte Tank
         </text>
 
         <!-- Liquid level indicator -->
@@ -193,7 +193,7 @@
           font-size="14"
           font-weight="bold"
         >
-          Electrochemical Cell
+          Cell Stack
         </text>
 
         <!-- Negative Electrode -->
@@ -212,7 +212,7 @@
           fill="#3b82f6"
           font-size="10"
         >
-          Anode (-)
+          Anode
         </text>
 
         <!-- Positive Electrode -->
@@ -231,7 +231,7 @@
           fill="#ef4444"
           font-size="10"
         >
-          Cathode (+)
+          Cathode
         </text>
 
         <!-- Membrane -->
@@ -409,48 +409,55 @@
         <!-- Positive flow particles -->
         <circle class="posFlow" cx="680" cy="220" r="1.5" fill="#f87171" />
         <circle class="posFlow" cx="740" cy="230" r="1.5" fill="#f87171" />
-        <circle class="posFlow" cx="780" cy="225" r="1.5" fill="#f87171" />
-      </g>
-    </svg>
-  </div>
+</div>
 
-  <!-- Scientific Explanation -->
-  <div class="grid grid-cols-1 md:grid-cols-2 gap-6 text-sm">
-    <div class="space-y-3 max-w-[1000px] mx-auto">
-      <h3 class="text-xl font-bold text-indigo-400 mb-3">Discharge Process</h3>
-      <div class="space-y-2">
-        <div class="flex items-center gap-2">
-          <div class="w-3 h-3 bg-blue-400 rounded-full"></div>
-          <span><strong>Anode (-):</strong> V²⁺ → V³⁺ + e⁻</span>
-        </div>
-        <div class="flex items-center gap-2">
-          <div class="w-3 h-3 bg-red-400 rounded-full"></div>
-          <span
-            ><strong>Cathode (+):</strong> VO₂⁺ + 2H⁺ + e⁻ → VO²⁺ + H₂O</span
-          >
-        </div>
-        <div class="flex items-center gap-2">
-          <div class="w-3 h-3 bg-yellow-400 rounded-full"></div>
-          <span><strong>Electrons</strong> flow through external circuit</span>
-        </div>
-        <div class="flex items-center gap-2">
-          <div class="w-3 h-3 bg-purple-400 rounded-full"></div>
-          <span
-            ><strong>H⁺ ions</strong> cross membrane for charge balance</span
-          >
-        </div>
-      </div>
+<!-- Battery Components -->
+<div class="mt-8 max-w-6xl mx-auto text-center">
+  <h3 class="text-2xl font-bold text-indigo-300 mb-6">Key Components</h3>
+  <div class="grid grid-cols-1 md:grid-cols-4 gap-4">
+    <!-- First Row -->
+    <div class="p-4 bg-white/5 rounded-lg border border-white/10">
+      <div class="text-blue-400 text-2xl mb-2">1</div>
+      <h4 class="font-bold text-lg mb-2">Electrolyte Tanks</h4>
+      <p class="text-sm opacity-80">Store liquid electrolytes containing active redox species in different oxidation states</p>
     </div>
-
-    <div class="space-y-3 max-w-[1000px] mx-auto">
-      <h3 class="text-xl font-bold text-green-400 mb-3">Key Advantages</h3>
-      <ul class="space-y-2 list-disc list-inside">
-        <li><strong>Scalable:</strong> Independent power & energy scaling</li>
-        <li><strong>Long-lasting:</strong> 10,000+ charge cycles</li>
-        <li><strong>Safe:</strong> Non-flammable aqueous electrolytes</li>
-        <li><strong>Efficient:</strong> 75-85% round-trip efficiency</li>
-        <li><strong>Flexible:</strong> Rapid response to grid demands</li>
-      </ul>
+    <div class="p-4 bg-white/5 rounded-lg border border-white/10">
+      <div class="text-blue-400 text-2xl mb-2">2</div>
+      <h4 class="font-bold text-lg mb-2">Anode</h4>
+      <p class="text-sm opacity-80">Where oxidation occurs</p>
+    </div>
+    <div class="p-4 bg-white/5 rounded-lg border border-white/10">
+      <div class="text-blue-400 text-2xl mb-2">3</div>
+      <h4 class="font-bold text-lg mb-2">Cathode</h4>
+      <p class="text-sm opacity-80">Where reduction occurs</p>
+    </div>
+    <div class="p-4 bg-white/5 rounded-lg border border-white/10">
+      <div class="text-blue-400 text-2xl mb-2">4</div>
+      <h4 class="font-bold text-lg mb-2">Cell Stack</h4>
+      <p class="text-sm opacity-80">Holds the electrodes and membrane where reactions occur</p>
+    </div>
+    
+    <!-- Second Row -->
+    <div class="p-4 bg-white/5 rounded-lg border border-white/10">
+      <div class="text-blue-400 text-2xl mb-2">5</div>
+      <h4 class="font-bold text-lg mb-2">Ion Exchange Membrane</h4>
+      <p class="text-sm opacity-80">Allows H⁺ ions to pass while preventing electrolyte mixing</p>
+    </div>
+    <div class="p-4 bg-white/5 rounded-lg border border-white/10">
+      <div class="text-blue-400 text-2xl mb-2">6</div>
+      <h4 class="font-bold text-lg mb-2">External Circuit</h4>
+      <p class="text-sm opacity-80">Path for electron flow from anode to cathode</p>
+    </div>
+    <div class="p-4 bg-white/5 rounded-lg border border-white/10">
+      <div class="text-blue-400 text-2xl mb-2">7</div>
+      <h4 class="font-bold text-lg mb-2">Pumps</h4>
+      <p class="text-sm opacity-80">Circulate electrolytes between tanks and cell stack</p>
+    </div>
+    <div class="p-4 bg-white/5 rounded-lg border border-white/10">
+      <div class="text-blue-400 text-2xl mb-2">8</div>
+      <h4 class="font-bold text-lg mb-2">Electrolyte</h4>
+      <p class="text-sm opacity-80">Ionic solution that stores and transfers energy through redox reactions</p>
     </div>
   </div>
+</div>
 </div>
